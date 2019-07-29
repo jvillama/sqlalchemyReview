@@ -33,7 +33,7 @@
     ```
   * Copy value for `DATABASE_URL` variable
   * Create `.env` file based off `.env-example` file in repo
-  * Paste copied `DATABASE_URL` value into the `DATABASE_URL` variable in `.env` file (i.e. DATABASE_URL = <your-db-url>)
+  * Paste copied `DATABASE_URL` value into the `DATABASE_URL` variable in `.env` file (i.e. DATABASE_URL = your-db-url)
 
 #### Step 2: Preparing the Database
 
@@ -81,20 +81,21 @@
   source activate review_env
   ```
 
-  * Next, we install `gunicorn` with `pip install gunicorn`. Gunicorn is a high performance web server that can run their Flask app in a production environment.
+  * Next, we install dependencies via pip from the requirements.txt file:
+  ```sh
+  pip install -r requirements.txt
+  ```
 
-  * Because this app will use Postgres, we also install `psycopg2` with `pip install psycopg2`.
-
-  * Make sure to install any other dependencies that are required by the application. This may be `flask-sqlalchemy`, or any other Python package that is required to run the app. **Test the app locally to make sure that it works!**
+  OR install manaully via the following:
 
   ```
   pip install gunicorn
   pip install psycopg2
   pip install flask
   pip install flask-sqlalchemy
-  pip install python-dotenv
   pip install flask-marshmallow
   pip install marshmallow-sqlalchemy
+  pip install python-dotenv
   ```
 
   * Run the app locally using the following:
