@@ -2,10 +2,7 @@ import os
 
 from dotenv import load_dotenv
 from marshmallow import fields
-
 from sqlalchemy.ext.automap import automap_base
-# from sqlalchemy.orm import Session
-# from sqlalchemy import create_engine
 
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
@@ -21,9 +18,7 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
-# print(app.config['SQLALCHEMY_DATABASE_URI'])
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
@@ -162,6 +157,7 @@ def get_products():
     ]
 
     results = db.session.query(*sel).all()
+    
     # Create a dictionary from the row data and append to a list of all_products
     all_products = []
     for id, title, price, tags in results:
